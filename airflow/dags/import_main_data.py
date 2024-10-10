@@ -59,13 +59,13 @@ import_resellers_task = BashOperator(
 
 import_customers_task = BashOperator(
     task_id='import_customers',
-    bash_command=f"""psql {AIRFLOW_CONN_SALES_OLTP} -c "\copy customers to stdout" | psql {AIRFLOW_CONN_SALES_DW} -c "\copy import.customers(customer_id, customer_name, customer_email) from stdin" """,
+    bash_command=f"""psql {AIRFLOW_CONN_SALES_OLTP} -c "\copy customers to stdout" | psql {AIRFLOW_CONN_SALES_DW} -c "\copy import.customers(customer_id, first_name, last_name, email) from stdin" """,
     dag=dag,
 )
 
 import_products_task = BashOperator(
     task_id='import_products',
-    bash_command=f"""psql {AIRFLOW_CONN_SALES_OLTP} -c "\copy products to stdout" | psql {AIRFLOW_CONN_SALES_DW} -c "\copy import.products(product_id, name, price) from stdin" """,
+    bash_command=f"""psql {AIRFLOW_CONN_SALES_OLTP} -c "\copy products to stdout" | psql {AIRFLOW_CONN_SALES_DW} -c "\copy import.products(product_id, name, city, price) from stdin" """,
     dag=dag,
 )
 
