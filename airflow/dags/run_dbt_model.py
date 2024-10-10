@@ -24,25 +24,7 @@ wait_for_dbt_init = ExternalTaskSensor(
 )
 
 # Function to load the manifest
-# def load_manifest():
-#     return data
-#     local_filepath = f"{DBT_PATH}/target/manifest.json"
-#     with open(local_filepath) as f:
-#         data = json.load(f)
-#     return data
-
-# # PythonOperator to load the manifest
-# load_manifest_task = PythonOperator(
-#     task_id='load_manifest',
-#     python_callable=load_manifest,
-#     dag=dag
-# )
-
-
-def load_manifest(skip_load=True):
-    if skip_load:
-        return None  # Avoid loading the manifest and return None or some other placeholder value.
-    
+def load_manifest():
     local_filepath = f"{DBT_PATH}/target/manifest.json"
     with open(local_filepath) as f:
         data = json.load(f)
@@ -51,9 +33,26 @@ def load_manifest(skip_load=True):
 # PythonOperator to load the manifest
 load_manifest_task = PythonOperator(
     task_id='load_manifest',
-    python_callable=lambda: load_manifest(skip_load=False),  # Pass the condition to skip loading
+    python_callable=load_manifest,
     dag=dag
 )
+
+
+# def load_manifest(skip_load=True):
+#     if skip_load:
+#         return None  # Avoid loading the manifest and return None or some other placeholder value.
+    
+#     local_filepath = f"{DBT_PATH}/target/manifest.json"
+#     with open(local_filepath) as f:
+#         data = json.load(f)
+#     return data
+
+# # PythonOperator to load the manifest
+# load_manifest_task = PythonOperator(
+#     task_id='load_manifest',
+#     python_callable=lambda: load_manifest(skip_load=False),  # Pass the condition to skip loading
+#     dag=dag
+# )
 
 
 
