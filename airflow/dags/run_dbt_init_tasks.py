@@ -22,7 +22,7 @@ with DAG(dag_id='run_dbt_init_tasks', default_args=default_args, schedule_interv
     task_id='wait_for_main',
     external_dag_id='import_main_data',  # External DAG to wait for
     execution_date_fn=lambda x: days_ago(1),  # Execution date function
-    timeout=300  # Timeout for the sensor
+    timeout=600  # Timeout for the sensor
   )
 
   # Task to wait for the completion of 'import_reseller_data' DAG
@@ -30,7 +30,7 @@ with DAG(dag_id='run_dbt_init_tasks', default_args=default_args, schedule_interv
     task_id='wait_for_resellers',
     external_dag_id='import_reseller_data',  # External DAG to wait for
     execution_date_fn=lambda x: days_ago(1),  # Execution date function
-    timeout=300  # Timeout for the sensor
+    timeout=600  # Timeout for the sensor
   )
 
   # Task to pull the most recent version of the dependencies listed in packages.yml from git

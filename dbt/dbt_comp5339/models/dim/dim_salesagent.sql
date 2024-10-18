@@ -7,7 +7,7 @@ unique_key = 'sales_agent_key'
 
 
 SELECT
-     -- fill code here 
+    reseller_id, reseller_name, commission_pct
 FROM
     {{ ref('staging_resellers') }}
 UNION ALL

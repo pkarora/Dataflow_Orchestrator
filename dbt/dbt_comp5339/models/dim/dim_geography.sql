@@ -4,6 +4,6 @@
 ) }}
 
 SELECT
-       -- fill code here 
+      id,cityname,countryname,regionname
 FROM
       {{ ref('geography') }}

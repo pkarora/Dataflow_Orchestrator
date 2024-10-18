@@ -9,13 +9,11 @@ SELECT
     channel_key,
     bought_date_key,
     geography_key,
-    SUM(amount) as total_amount,
-    COUNT(transaction_id) as total_transactions
+    total_amount,
+    qty,
+    product_price,
+    commissionpaid,
+    commissionpct,
+    loaded_timestamp
 FROM
     {{ ref('staging_transactions') }}
-GROUP BY
-    customer_key,
-    product_key,
-    channel_key,
-    bought_date_key,
-    geography_key

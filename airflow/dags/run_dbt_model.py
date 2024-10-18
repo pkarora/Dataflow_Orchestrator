@@ -37,26 +37,6 @@ load_manifest_task = PythonOperator(
     dag=dag
 )
 
-
-# def load_manifest(skip_load=True):
-#     if skip_load:
-#         return None  # Avoid loading the manifest and return None or some other placeholder value.
-    
-#     local_filepath = f"{DBT_PATH}/target/manifest.json"
-#     with open(local_filepath) as f:
-#         data = json.load(f)
-#     return data
-
-# # PythonOperator to load the manifest
-# load_manifest_task = PythonOperator(
-#     task_id='load_manifest',
-#     python_callable=lambda: load_manifest(skip_load=False),  # Pass the condition to skip loading
-#     dag=dag
-# )
-
-
-
-
 def make_dbt_task(node, dbt_verb):
     """Returns an Airflow operator to run and test an individual model"""
     DBT_DIR = DBT_PATH

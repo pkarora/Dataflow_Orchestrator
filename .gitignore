@@ -1,0 +1,4 @@
+.DS_Store
+dbt/dbt_comp5339/target
+import/
+airflow/dags/__pycache__
