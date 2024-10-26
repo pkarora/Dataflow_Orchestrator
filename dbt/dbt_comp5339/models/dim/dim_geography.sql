@@ -1,9 +1,9 @@
 {{ config(
       materialized = 'table',
-      unique_key = 'geographykey'
+      unique_key = 'geography_key'
 ) }}
 
 SELECT
-     id, cityname, countryname, regionname
+    id as geography_key, cityname as city_name, countryname as country_name, regionname
 FROM
       {{ ref('geography') }}
