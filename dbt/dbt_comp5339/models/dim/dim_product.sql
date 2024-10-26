@@ -1,9 +1,10 @@
 {{
 config(
-    materialized = 'table',
-    unique_key = 'product_key'
+materialized = 'table',
+unique_key = 'product_key'
 )
 }}
+
 
 select  
     product_id as product_key, 
@@ -12,4 +13,5 @@ select
     geography_key, 
     product_price
 
-from {{ref('staging_product')}}
+
+FROM {{ref('staging_product')}}

@@ -4,6 +4,6 @@
 ) }}
 
 SELECT
-      id,cityname,countryname,regionname
+     id, cityname, countryname, regionname
 FROM
       {{ ref('geography') }}

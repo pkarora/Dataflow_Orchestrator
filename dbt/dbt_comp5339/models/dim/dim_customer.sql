@@ -1,7 +1,7 @@
 {{
 config(
-    materialized = 'table',
-    unique_key = 'customer_key'
+materialized = 'table',
+unique_key = 'customer_key'
 )
 }}
 
