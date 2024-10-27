@@ -20,7 +20,7 @@ with DAG(dag_id='run_dbt_init_tasks', default_args=default_args, schedule_interv
   # Task to wait for the completion of 'import_main_data' DAG
   wait_for_main = ExternalTaskSensor(
     task_id='wait_for_main',
-    external_dag_id='import_main_data',  # External DAG to wait for
+    external_dag_id='import_main_data_IndianStuds',  # External DAG to wait for
     execution_date_fn=lambda x: days_ago(1),  # Execution date function
     timeout=300  # Timeout for the sensor
   )
