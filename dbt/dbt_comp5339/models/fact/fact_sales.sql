@@ -1,6 +1,6 @@
 {{ config(
     materialized = 'table',
-    unique_key = ['customer_key', 'product_key', 'channel_key', 'bought_date_key', 'geography_key']
+    unique_key = ['customer_key', 'product_key', 'channel_key', 'bought_date_key', 'geography_key', 'reseller_id']
 ) }}
 
 SELECT
@@ -9,6 +9,7 @@ SELECT
     channel_key,
     bought_date_key,
     geography_key,
+    reseller_id,
     total_amount,
     qty,
     product_price,

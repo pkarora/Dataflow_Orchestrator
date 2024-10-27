@@ -21,7 +21,7 @@ default_args = {
     'retry_delay': timedelta(minutes=5)
 }
 dag = DAG(
-    'import_main_data',
+    'import_main_data_IndianStuds',
     default_args=default_args,
     description='Import Main Transactions Files',
     schedule_interval='@daily',

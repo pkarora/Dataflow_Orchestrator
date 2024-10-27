@@ -6,7 +6,7 @@ config(
 }}
 
 SELECT
-    reseller_id AS sales_agent_key,  -- alias reseller_id as sales_agent_key
+    reseller_id AS sales_agent_key, 
     reseller_id AS original_reseller_id,
     reseller_name,
     commission_pct
